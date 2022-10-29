@@ -8,8 +8,8 @@
 </head>
 <body>
     <h2>Hello,</h2>
-    <h3>Mithun</h3>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit explicabo odio quod minima blanditiis dolorum culpa veritatis molestias fugit. Nihil laudantium quam quaerat nam officiis! Atque quibusdam eius pariatur earum?</p>
+    <h3>{{$name}}</h3>
+    <p>{{$channel}}</p>
 
 </body>
 </html>

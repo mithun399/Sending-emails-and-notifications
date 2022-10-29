@@ -16,9 +16,12 @@ class emailNotification extends Notification
      *
      * @return void
      */
-    public function __construct()
+    public $name='';
+    public $channel='';
+    public function __construct($name,$channel)
     {
-        //
+        $this->name=$name;
+        $this->channel=$channel;
     }
 
     /**
@@ -44,7 +47,10 @@ class emailNotification extends Notification
         //             ->line('The introduction to the notification.')
         //             ->action('Notification Action', url('/'))
         //             ->line('Thank you for using our application!');
-        return (new MailMessage)->view('message');
+        $name=$this->name;
+        $channel=$this->channel;
+
+        return (new MailMessage)->view('message',compact('name','channel'));
     }
 
     /**

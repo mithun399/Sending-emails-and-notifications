@@ -29,8 +29,9 @@ Route::get('/', function () {
 //multiple user
 Route::get('send', function () {
     $user=User::all();
-    Notification::send($user, new emailNotification());
-    
+    foreach($user as $users){
+    Notification::send($users, new emailNotification('Mithun','Learn sending email and notification'));
+    }
     return redirect()->back();
 });
 
