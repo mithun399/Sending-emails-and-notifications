@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use  Illuminate\Support\Facades\Auth;
+use App\Notifications\emailNotification;
+use App\Models\User;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,8 +15,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome'); 
+});
+
+Route::get('send', function () {
+    $user=User::find(1);
+    $user->notify(new emailNotification());
+    return redirect()->back();
 });
 
 Auth::routes();
